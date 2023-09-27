@@ -1,12 +1,13 @@
 # Variable-Temperature-Spectral-Radiation-Simulator
 **Interactive Simulation of Spectral Radiation from a Blackbody**
- This code is a C program that generates a graphical representation of the spectral radiation of a blackbody as a function of temperature. It displays a curve of radiation intensity versus wavelength and provides temperature and radiation intensity information on a full-color terminal screen.
+ This code is a C program that generates a graphical representation of the spectral radiation of a blackbody as a function of temperature. It displays a curve of radiation intensity versus wavelength and provides temperature and radiation intensity information on a full-color terminal screen.  
+ ![Radiação_Corponegro](https://github.com/exponeciale/Variable-Temperature-Spectral-Radiation-Simulator/assets/132215795/56856f35-6396-4e42-b056-73d58380dfbb)  
  **Some of the main formulas that the script uses:**
 
  **Planck's Law for Blackbody Spectral Radiation Intensity:**
  The formula to calculate the spectral radiation intensity (I) of a black body in relation to wavelength (λ) and temperature (T) is given by:
 
- ### I(λ, T) = [(2 * π * h * c^2) / (λ^5)] * [1 / (e^[(h * c) / (λ * k * T)] - 1 )]
+ **I(λ, T) = [(2 * π * h * c^2) / (λ^5)] * [1 / (e^[(h * c) / (λ * k * T)] - 1 )]**
 
 **Where:**  
 
@@ -16,6 +17,7 @@
 **λ** is the wavelength.  
 **k** is the Boltzmann constant.  
 **T** is the temperature in Kelvin.  
+
 
  **Wien's Law for Peak Wavelength:**  
  The formula to calculate the peak wavelength (λ_max) of the radiation emitted by a black body as a function of _temperature (T) is given by:  
