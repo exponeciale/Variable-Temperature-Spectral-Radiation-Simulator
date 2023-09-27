@@ -20,13 +20,13 @@
 ## Wien's Law for Peak Wavelength:
  The formula to calculate the peak wavelength (λ_max) of the radiation emitted by a black body as a function of _temperature (T) is given by:
 
-**λ_max = b / T*
+*λ_max = b / T*
 
-## Where:
+**Where:**
 **λ_max** is the peak wavelength.
 **b** is the Wien constant.
 
-## Temperature Conversion to Color Table Index:
+ **Temperature Conversion to Color Table Index:**
  The program maps the temperature to an index in the kelvin_table color table based on temperature ranges. It is not a specific formula, but a correspondence between the temperature and an index in the table.
 
 ### Maximum Spectral Radiation Intensity:
