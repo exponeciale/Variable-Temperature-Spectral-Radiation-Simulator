@@ -12,8 +12,8 @@
 #define CIRC_WIDTH 75
 #define CIRC_ASPECT_RATIO 2
 #define CIRC_RADIUS 5
-#define CIRC_CENTER_X (CIRC_WIDTH / 2.0)
-#define CIRC_CENTER_Y (CIRC_HEIGHT / 2.0)
+#define CIRC_CENTER_X (CIRC_WIDTH / 2.0) // Correção: Adicione parênteses
+#define CIRC_CENTER_Y (CIRC_HEIGHT / 2.0) // Correção: Adicione parênteses
 
 typedef struct {
   unsigned char red;
@@ -113,7 +113,7 @@ ColorRGB kelvin_table[] = {
           {180, 223, 255  }, {178, 222, 255  }, {175, 221, 255  }, {171, 221, 255  }, {167, 220, 255  }, {164, 220, 255  },
           {161, 218, 255  }, {158, 218, 255  }, {157, 217, 255  }, {154, 217, 255  }, {150, 216, 255  }, {147, 216, 255  },
           {145, 215, 255  }, {141, 215, 255  }, {138, 214, 255  }, {135, 214, 255  }, {133, 213, 255  }, {130, 213, 255  },
-          {128, 212, 255  }, {125, 212, 255  }, {123, 212, 255  }, {120, 211, 255  }, {118, 211, 255  }, {116, 210, 255  },     	
+          {128, 212, 255  }, {125, 212, 255  }, {123, 212, 255  }, {120, 211, 255  }, {118, 211, 255  }, {116, 210, 255  },
           {112, 210, 255  }, {107, 210, 255  }, {103, 209, 255  }
 };
 double intensidadeRadiacao(double temperatura, double comprimentoOnda) {
@@ -136,11 +136,16 @@ ColorRGB temperatureToColor(int temp) {
 
   return color;
 }
-
+double wien(double temperatura) {
+  double b = 2.897771955e-3; // Constante de Wien
+  return b / temperatura;
+}
 int main() {
-  int temp = 5000;
-  double temperatura = 5000.0;
-  
+  int temp = 1000; // Temperatura inicial em Kelvin
+  double temperatura = 100.0; // Temperatura inicial em Kelvin
+  double numeroDouble;
+
+  // Convertendo o inteiro para double
   int maxX = CIRC_WIDTH;
   int maxY = CIRC_HEIGHT;
   double comprimentoInicial = 4e-9;
@@ -152,8 +157,8 @@ int main() {
 
   struct termios old_terminal; // Variável para armazenar configurações anteriores do terminal
 
-  int totalColors = 256; //Número de cores a serem exibidas
-  int colorsPerColumn = 32; //Número de cores a serem exibidas em cada coluna
+  int totalColors = 256; // Number of colors to display
+  int colorsPerColumn = 32; // Number of colors to display in each column
 
   ColorRGB colors[totalColors];
 
@@ -236,12 +241,12 @@ int main() {
 
         // Impressão do caractere colorido
         if (distance4 <= CIRC_RADIUS) {
-          printf("\033[38;2;%d;%d;%dmo", color.red, color.green, color.blue); // Circlos combinados
+          printf("\033[38;2;%d;%d;%dmo", color.red, color.green, color.blue); // Combined circle
         } else {
           printf("\033[38;2;%d;%d;%dmo", r, g, b); // Original circles
         }
       }
-      printf("\033[0m\n"); // Cor resetada
+      printf("\033[0m\n"); // Reset color
     }
     printf("\033[38;2;%d;%d;%dm###\n", color.red, color.green, color.blue);
     printf("\033[0m");
@@ -250,11 +255,12 @@ int main() {
     printf("'q' para sair\n");
 
     printColor(color);
-    double expoente = (PLANCK_CONSTANT * SPEED_OF_LIGHT) / ((WIEN / temperatura) * BOLTZMANN_CONSTANT * temperatura);
+    numeroDouble = (double)temp;
+    double expoente = (PLANCK_CONSTANT * SPEED_OF_LIGHT) / ((WIEN /numeroDouble  ) * BOLTZMANN_CONSTANT * numeroDouble);
     double exponencial = exp(expoente);
-    double densidade_espectral = (2 * PLANCK_CONSTANT * SPEED_OF_LIGHT * SPEED_OF_LIGHT) / (pow((WIEN / temperatura), 5) * (exponencial - 1));
+    double densidade_espectral = (2 * PLANCK_CONSTANT * SPEED_OF_LIGHT * SPEED_OF_LIGHT) / (pow((WIEN / numeroDouble), 5) * (exponencial - 1));
 
-    printf("Temperatura %.2lf K\nComprimento de onda: %.2e\nIntensidade de radiação espectral %.2e watts/m^2\n", temperatura, (WIEN / temperatura), densidade_espectral);
+    printf("Temperatura: %.2f K\nComprimento de onda: %.2e m\nIntensidade de radiação espectral %.2e watts/m^2\n", numeroDouble, (WIEN /numeroDouble), densidade_espectral);
 
     char input = getch();
     if (input == 'q') {
@@ -266,7 +272,7 @@ int main() {
       }
     } else if ((input == '-' || input == 'a') && temp > 1000) {
       temp -= 100;
-      if (temperatura > 1000.0) {
+      if (temperatura > 150.0) {
         temperatura -= 100.0;
       }
     }
