@@ -12,9 +12,8 @@
 #define CIRC_WIDTH 75
 #define CIRC_ASPECT_RATIO 2
 #define CIRC_RADIUS 5
-#define CIRC_CENTER_X (CIRC_WIDTH / 2.0) // Correção: Adicione parênteses
-#define CIRC_CENTER_Y (CIRC_HEIGHT / 2.0) // Correção: Adicione parênteses
-
+#define CIRC_CENTER_X (CIRC_WIDTH / 2.0) 
+#define CIRC_CENTER_Y (CIRC_HEIGHT / 2.0)
 typedef struct {
   unsigned char red;
   unsigned char green;
@@ -157,8 +156,8 @@ int main() {
 
   struct termios old_terminal; // Variável para armazenar configurações anteriores do terminal
 
-  int totalColors = 256; // Number of colors to display
-  int colorsPerColumn = 32; // Number of colors to display in each column
+  int totalColors = 256; // Número de cores a serem exibidas
+  int colorsPerColumn = 32; //Número de cores a serem exibidas em cada coluna
 
   ColorRGB colors[totalColors];
 
@@ -246,7 +245,7 @@ int main() {
           printf("\033[38;2;%d;%d;%dmo", r, g, b); // Original circles
         }
       }
-      printf("\033[0m\n"); // Reset color
+      printf("\033[0m\n");
     }
     printf("\033[38;2;%d;%d;%dm###\n", color.red, color.green, color.blue);
     printf("\033[0m");
