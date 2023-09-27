@@ -4,11 +4,11 @@
  **Some of the main formulas that the script uses:**
 
  ## Planck's Law for Blackbody Spectral Radiation Intensity:
- The formula to calculate the spectral radiation _intensity _(I) of a black body in relation to _wavelength _(λ) and _temperature _(T) is given by:
+ The formula to calculate the spectral radiation intensity (I) of a black body in relation to wavelength (λ) and temperature (T) is given by:
 
  ### I(λ, T) = [(2 * π * h * c^2) / (λ^5)] * [1 / (e^[(h * c) / (λ * k * T)] - 1 )]
 
-## Where:
+**Where:**
 
 **I(λ, T)** is the spectral radiation intensity.
 **h** is Planck's constant.
@@ -17,14 +17,14 @@
 **k** is the Boltzmann constant.
 **T** is the temperature in Kelvin.
 
-## Wien's Law for Peak Wavelength:
- The formula to calculate the peak wavelength (λ_max) of the radiation emitted by a black body as a function of _temperature (T) is given by:
+ **Wien's Law for Peak Wavelength:**  
+ The formula to calculate the peak wavelength (λ_max) of the radiation emitted by a black body as a function of _temperature (T) is given by:  
 
-*λ_max = b / T*
+*λ_max = b / T*  
 
 **Where:**
-**λ_max** is the peak wavelength.
-**b** is the Wien constant.
+**λ_max** is the peak wavelength.  
+**b** is the Wien constant.  
 
  **Temperature Conversion to Color Table Index:**
  The program maps the temperature to an index in the kelvin_table color table based on temperature ranges. It is not a specific formula, but a correspondence between the temperature and an index in the table.
