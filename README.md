@@ -7,7 +7,7 @@
  **Planck's Law for Blackbody Spectral Radiation Intensity:**
  The formula to calculate the spectral radiation intensity (I) of a black body in relation to wavelength (λ) and temperature (T) is given by:
 
- **I(λ, T) = [(2 * π * h * c^2) / (λ^5)] * [1 / (e^[(h * c) / (λ * k * T)] - 1 )]**
+ *I(λ, T) = [(2 * π * h * c^2) / (λ^5)] * [1 / (e^[(h * c) / (λ * k * T)] - 1 )]*
 
 **Where:**  
 
