@@ -18,9 +18,9 @@
 **T** is the temperature in Kelvin.
 
 ## Wien's Law for Peak Wavelength:
- The formula to calculate the peak _wavelength _(λ_max) of the radiation emitted by a black body as a function of _temperature _(T) is given by:
+ The formula to calculate the peak wavelength (λ_max) of the radiation emitted by a black body as a function of _temperature (T) is given by:
 
-### λ_max = b / T
+**λ_max = b / T*
 
 ## Where:
 **λ_max** is the peak wavelength.
